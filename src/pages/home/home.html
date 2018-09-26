@@ -1,17 +1,68 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>STARBUCKS</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-</ion-content>
+<ion-list>
+  
+
+  
+  <h2>ORDER COFFE</h2>
+  <ion-item>
+  <ion-input type="text"[(ngModel)]="name" class="InputCoffe" placeholder="Name"></ion-input>
+</ion-item>
+
+<h2>Toppings</h2>
+<ion-item>
+    <ion-label>Chocolate</ion-label>
+    <ion-checkbox color="danger"[(ngModel)]="Chocolate"></ion-checkbox>
+</ion-item>
+
+
+<ion-item>
+    <ion-label>Whipped Cream</ion-label>
+    <ion-checkbox  [(ngModel)]="WhippedCream"></ion-checkbox>
+</ion-item>
+
+
+<h2>Quantity</h2>
+<div class="quantity">
+
+
+    <ion-label>{{total}}</ion-label>
+
+<button ion-button full  color="danger" (click)="onClickAdd()">+</button> 
+<button ion-button full color="danger" (click)="onClickSubtract()">-</button> 
+</div>
+
+
+<h2>Order Summary</h2>
+<div *ngIf="showValue==1">
+  <p> {{name}}</p>
+
+<div *ngIf="Choc>=1||Chic>=1">
+  +( {{choc}} ) chocolates ordered<br>
+
+</div>
+<div *ngIf="Wh>=1||WhChic>=1">
+  + ( {{Wh}}) Whipped Creams Ordered<br>
+
+</div>
+<p> The Quantity is {{total}}</p>
+</div>
+
+
+
+
+
+<button ion-button full color="danger" (click)="showSum()">Order</button> <br>
+<button  ion-button full color="danger"  (click)="onClickReset()">Reset</button>
+
+</ion-list>
+
+
+
+
+
